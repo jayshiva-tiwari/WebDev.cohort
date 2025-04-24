@@ -103,4 +103,88 @@ const highestActivity = userActivities.reduce((maxUser, user)=> {
         return user.activityCount > maxUser.activityCount ? user : maxUser;
 })
 
-console.log(highestActivity); // {user: 'Alice', activityCount: 15}
+// console.log(highestActivity); // {user: 'Alice', activityCount: 15}
+
+
+const expenses = [
+    {description: 'groceries',category: 'Food', amount: 200},
+    {description: 'rent', category: 'Housing', amount: 1200},
+    {description: 'utilities', category: 'Housing', amount: 300},
+    {description: 'transportation', category: 'Transport', amount: 150},
+    {description: 'dining out', category: 'Food', amount: 100},
+    {description: 'internet', category: 'Housing', amount: 60},
+]
+
+//make a report of total expenses by category
+
+// const expenseReport = expenses.reduce((acc, expense) => {
+//     if (acc[expense.category]) {
+//         acc[expense.category] += expense.amount;
+//     } else {
+//         acc[expense.category] = expense.amount;
+//     }
+//     return acc;
+// }, {});
+
+const expenseReport = expenses.reduce((report, expense)=>{
+    report[expense.category] = ( report[expense.category] || 0) + expense.amount;
+    return report;
+}, {});
+
+// console.log(expenseReport); // {Food: 300, Housing: 1560, Transport: 150}
+
+const userTask = [
+    {user: 'John', completed: true, priority: 1},
+    {user: 'Bob', completed: false, priority: 2},
+    {user: 'Alice', completed: true, priority: 3},
+    {user: 'Charlie', completed: false, priority: 1},
+    {user: 'Dave', completed: true, priority: 2},
+    {user: 'Eve', completed: false, priority: 3},
+    {user: 'Frank', completed: true, priority: 1},
+]
+
+const completedTasks = userTask
+    .filter(
+        (task)=>{
+            return task.completed === true;
+        }
+    )
+    .sort(
+        (a, b) => {
+            return a.priority - b.priority;
+        }
+    );
+
+// console.log(completedTasks); 
+
+const movies = [
+    {title: "Inception", rating: [4,3,5]},
+    {title: "The Dark Knight", rating: [5,5,4]},
+    {title: "Interstellar", rating: [4,4,4]},
+    {title: "Dunkirk", rating: [3,4,5]},
+    {title: "Tenet", rating: [4,3,4]},
+    {title: "Memento", rating: [5,5,5]},
+]
+
+//calculate the average rating for each movie
+
+const Rating = movies.map((movie)=>{
+    const total = movie.rating.reduce(
+        (acc, rating)=>{
+            return acc + rating;
+        }
+    )
+    const averageRating = total / movie.rating.length;
+    //     movie.rating = averageRating;
+    // return movie; // it will change the original array
+    return {
+        title: movie.title,
+        averageRating: averageRating.toFixed(1),
+    }   
+})
+
+
+// console.log(Rating); // [{title: "Inception", averageRating: 4.33}, ...]
+// console.log(movies);
+
+
