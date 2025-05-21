@@ -95,6 +95,27 @@ const obj = {
 
 const myWeather = fetch('https://google.com');
 
+//create own promise
+
+function orderPizza() {
+    return new Promise((resolve, reject) => {
+        let pizzaReady = Math.random() > 0.5; // randomly true or false
+
+        setTimeout(() => {
+            if (pizzaReady) {
+                resolve("🍕 Pizza is ready!");
+            } else {
+                reject("❌ Pizza shop is closed.");
+            }
+        }, 1000);
+    });
+}
+
+orderPizza()
+    .then(msg => console.log("SUCCESS:", msg))
+    .catch(err => console.log("ERROR:", err));
+
+
 // console.log(myWeather); // promise {<pending>} // this is a promise, so the promise is a object.
 
 console.log('hello');
@@ -104,9 +125,9 @@ setTimeout(() => console.log('hey there'), 0);
 Promise.resolve().then(() => console.log('promise is resolved')
 )
 
-setTimeout(() => console.log('hey there'), 0);
+// setTimeout(() => console.log('hey there'), 0);
 
-console.log('bye bye');
+// console.log('bye bye');
 
 
 //The concept of starvation in js:
@@ -115,35 +136,44 @@ console.log('bye bye');
 
 //example of starvation:
 
-setTimeout(()=> console.log('hey there'), 1);
+setTimeout(() => console.log('hey there'), 1);
 
 Promise.resolve().then(() => {
-    console.log('promise is resolved')
+    // console.log('promise is resolved')
     Promise.resolve().then(() => {
-        console.log('promise is resolved')
+        // console.log('promise is resolved')
         Promise.resolve().then(() => {
-            console.log('promise is resolved');
+            // console.log('promise is resolved');
             Promise.resolve().then(() => {
-                console.log('promise is resolved');
+                // console.log('promise is resolved');
                 Promise.resolve().then(() => {
-                    console.log('promise is resolved');
+                    // console.log('promise is resolved');
                     Promise.resolve().then(() => {
-                        console.log('promise is resolved');
+                        // console.log('promise is resolved');
                         Promise.resolve().then(() => {
-                            console.log('promise is resolved');
+                            // console.log('promise is resolved');
                             Promise.resolve().then(() => {
-                                console.log('promise is resolved');
+                                // console.log('promise is resolved');
                             })
                         })
                     })
                 })
             }
-        )}
-    )}
-)}
+            )
+        }
+        )
+    }
+    )
+}
 );
 
-setTimeout(()=> console.log('hey there'), 1);
+// setTimeout(()=> console.log('hey there'), 1);
 
+//hoisting in js
 
+console.log(a); // undefined
+var a = 10;
+console.log(a); // 10
+
+//Hoisting is a mechanism in js where the variable and function declarations are moved to the top of their scope before the code is executed. so the variable is declared but not initialized, so it will be undefined. so the hoisting is done by the js engine. so the js engine will hoist the variable and function declarations to the top of their scope before the code is executed. so the hoisting is done by the js engine. so the js engine will hoist the variable and function declarations to the top of their scope before the code is executed.
 
