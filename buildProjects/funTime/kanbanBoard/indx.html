@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-900 text-gray-800 font-sans ">
+    <div class="container mx-auto p-4 bg-gray-950 min-h-screen flex flex-col items-center justify-center space-y-4 rounded shadow-lg">
+        <h1 class="text-3xl font-bold text-center text-gray-100 mb-4">Kanban Board</h1>
+
+        <div class="grid grid-cols-3 gap-10 mt-4">
+            <div id="todo-board" class="board bg-gray-200/40 hover:bg-gray-400 transition-colors duration-300  text-gray-900 p-4 rounded flex flex-col space-y-4 ">
+                <h2 class="text-xl font-semibold">To Do</h2>
+                <div id="taskList" class="taskList justify-between flex flex-col space-y-4">
+                    <!-- <div class="task bg-gray-300/50 hover:bg-gray-200 cursor-pointer transition-colors duration-300 p-2 rounded flex justify-between items-center">
+                        <span>Task 1</span>
+                        <button class="deleteTaskButton bg-red-500/70 cursor-pointer text-white p-1 rounded">Delete</button>
+                    </div>
+                    <div class="task bg-gray-300/50 hover:bg-gray-200 cursor-pointer transition-colors duration-300 p-2 rounded flex justify-between items-center">
+                        <span>Task 2</span>
+                        <button class="deleteTaskButton bg-red-500/70 cursor-pointer text-white p-1 rounded">Delete</button>
+                    </div> -->
+                    
+                </div>
+                    <!-- Tasks will go here -->
+                    <div class="justify-center flex mt-11 space-x-3 ">
+                        <input type="text" placeholder="Add a new task" class="taskInput border-4 hover:border-gray-500 transition-colors duration-300 border-dashed border-gray-400 text-gray-1000 p-2 rounded focus:outline-none outline-none">
+                        <button id="addTaskButton" class="addTaskButton bg-blue-500/70 cursor-pointer text-white p-2 rounded">Add Task</button>
+                    </div>
+            </div>
+            <div id="inProgress-board" class="board bg-gray-200/40 hover:bg-gray-400 transition-colors relative duration-300 p-4 rounded flex flex-col space-y-4">
+                <h2 class="text-xl font-semibold">In Progress</h2>
+                <div class="taskList justify-between flex flex-col space-y-4">
+                    <!-- <div class="task bg-gray-300/50 hover:bg-gray-200 cursor-pointer transition-colors duration-300 p-2 rounded flex justify-between items-center">
+                        <span>Task 1</span>
+                        <button class="deleteTaskButton bg-red-500/70 cursor-pointer text-white p-1 rounded">Delete</button>
+                    </div>
+                    <div class="task bg-gray-300/50 hover:bg-gray-200 cursor-pointer transition-colors duration-300 p-2 rounded flex justify-between items-center">
+                        <span>Task 2</span>
+                        <button class="deleteTaskButton bg-red-500/70 cursor-pointer text-white p-1 rounded">Delete</button>
+                    </div> -->
+                </div>
+                <!-- Tasks will go here -->
+                <div class="justify-center flex mt-11 space-x-3 absolute inset-x-0 bottom-4 ">
+                    <input type="text" placeholder="Add a new task" class="taskInput border hover:border-gray-500 transition-colors duration-300 p-2 rounded border-4 border-dashed border-gray-400 text-gray-1000 p-2 focus:outline-none outline-none">
+                    <button  class="addTaskButton bg-blue-500/70 text-white p-2 rounded cursor-pointer">Add Task</button>
+                </div>
+            </div>
+            <div id="done-board" class="board bg-gray-200/40 relative hover:bg-gray-400 transition-colors duration-300 p-4 rounded flex flex-col space-y-4">
+                <h2 class="text-xl font-semibold">Done</h2>
+                <div class="taskList justify-between flex flex-col space-y-4">
+                    <!-- <div class="task bg-gray-300/50 hover:bg-gray-200 cursor-pointer transition-colors duration-300 p-2 rounded flex justify-between items-center">
+                        <span>Task 1</span>
+                        <button class="deleteTaskButton bg-red-500/70 cursor-pointer text-white p-1 rounded">Delete</button>
+                    </div>
+                    <div class="task bg-gray-300/50 hover:bg-gray-200 cursor-pointer transition-colors duration-300 p-2 rounded flex justify-between items-center">
+                        <span>Task 2</span>
+                        <button class="deleteTaskButton bg-red-500/70 cursor-pointer text-white p-1 rounded">Delete</button>
+                    </div> -->
+                </div>
+                <!-- Tasks will go here -->
+                <div class="justify-center flex mt-11 space-x-3 absolute inset-x-0 bottom-4">
+                    <input type="text" placeholder="Add a new task" class="taskInput border hover:border-gray-500 transition-colors duration-300 p-2 border-4 border-dashed border-gray-400 text-gray-1000 p-2 rounded focus:outline-none outline-none">
+                    <button class="addTaskButton bg-blue-500/70 text-white p-2 rounded cursor-pointer">Add Task</button>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4 flex space-x-4 items-center justify-center w-full max-w-md mx-auto">
+            <input type="text" id="taskInput" placeholder="Add a new Board" class=" text-gray-300 border-4 border-dashed border-gray-400 focus:outline-none p-2 rounded">
+            <button id="addBoardButton" class="bg-blue-500 text-white cursor-pointer p-3 rounded">Add Board</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
